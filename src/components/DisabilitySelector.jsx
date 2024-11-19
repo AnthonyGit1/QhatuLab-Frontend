@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Settings, Volume2, Accessibility, User } from 'lucide-react';
+import AccessibilityMenu from './AccessibilityMenu';
 
 const DisabilitySelector = ({ onComplete }) => {
   const [loading, setSelected] = useState(false);
@@ -9,25 +10,29 @@ const DisabilitySelector = ({ onComplete }) => {
       id: 'visual',
       name: 'Discapacidad Visual',
       icon: Settings,
-      description: 'Adaptaciones para personas con dificultades visuales'
+      description: 'Adaptaciones para personas con dificultades visuales',
+      color: "primary"
     },
     { 
       id: 'auditiva',
       name: 'Discapacidad Auditiva',
       icon: Volume2,
-      description: 'Ajustes para personas con dificultades auditivas'
+      description: 'Ajustes para personas con dificultades auditivas',
+      color: "secondary"
     },
     { 
       id: 'motriz',
       name: 'Discapacidad Motriz',
       icon: Accessibility,
-      description: 'Configuración para personas con movilidad reducida'
+      description: 'Configuración para personas con movilidad reducida',
+      color: "primary"
     },
     { 
       id: 'ninguna',
       name: 'Sin Discapacidad',
       icon: User,
-      description: 'Experiencia estándar de la plataforma'
+      description: 'Experiencia estándar de la plataforma',
+      color: "secondary"
     }
   ];
 
@@ -38,7 +43,10 @@ const DisabilitySelector = ({ onComplete }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-white to-gray-50 z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-gradient-to-br from-white to-gray-50 z-40 overflow-y-auto">
+      {/* AccessibilityMenu */}
+      <AccessibilityMenu />
+      
       {!loading ? (
         <div className="min-h-screen flex flex-col items-center justify-center py-8 px-4 sm:px-8">
           <div className="w-full max-w-3xl my-auto">
@@ -54,28 +62,20 @@ const DisabilitySelector = ({ onComplete }) => {
             </p>
             
             <div className="grid gap-4 sm:gap-6 w-full">
-              {disabilities.map(({ id, name, icon: Icon, description }, index) => (
+              {disabilities.map(({ id, name, icon: Icon, description, color }, index) => (
                 <button
                   key={id}
                   onClick={() => handleSelection({ id, name })}
-                  className={`flex items-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border hover:shadow-md transition-all group ${
-                    index % 2 === 0 
-                    ? 'hover:border-primary' 
-                    : 'hover:border-secondary'
-                  }`}
+                  className={`flex items-center p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group w-full text-left`}
                 >
                   <div className={`p-2 sm:p-3 rounded-lg ${
-                    index % 2 === 0 
-                    ? 'bg-primary/10 group-hover:bg-primary/20' 
-                    : 'bg-secondary/10 group-hover:bg-secondary/20'
+                    color === "primary" ? 'bg-primary/10' : 'bg-secondary/10'
                   }`}>
                     <Icon className={`w-6 h-6 sm:w-8 sm:h-8 ${
-                      index % 2 === 0 
-                      ? 'text-primary' 
-                      : 'text-secondary'
+                      color === "primary" ? 'text-primary' : 'text-secondary'
                     }`} />
                   </div>
-                  <div className="ml-4 sm:ml-6 flex-grow text-left">
+                  <div className="ml-4 sm:ml-6 flex-grow">
                     <h3 className="text-base sm:text-lg font-semibold text-gray-900">
                       {name}
                     </h3>
@@ -84,11 +84,9 @@ const DisabilitySelector = ({ onComplete }) => {
                     </p>
                   </div>
                   <svg 
-                    className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${
-                      index % 2 === 0 
-                      ? 'text-gray-400 group-hover:text-primary' 
-                      : 'text-gray-400 group-hover:text-secondary'
-                    }`}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:${
+                      color === "primary" ? 'text-primary' : 'text-secondary'
+                    } transition-colors`}
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"
