@@ -13,9 +13,9 @@ export default {
           dark: '#6D28D9',
         },
         secondary: {
-          light: '#F472B6',
-          DEFAULT: '#EC4899',
-          dark: '#DB2777',
+          light: '#FF9F47',
+          DEFAULT: '#FF8122',
+          dark: '#E66C0D',
         }
       },
       fontFamily: {

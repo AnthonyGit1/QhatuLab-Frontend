@@ -45,14 +45,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
           {/* Logo y descripción */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center group">
               <img
                 className="h-10 w-auto"
                 src="https://i.ibb.co/f1BV122/2.png"
                 alt="QhatuLab"
               />
-              <span className="ml-3 text-white font-bold text-xl">QhatuLab</span>
+              <span className="ml-3 font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
+                QhatuLab
+              </span>
             </Link>
+            <div className="flex gap-2 my-4">
+              <div className="w-12 h-1 bg-primary rounded"></div>
+              <div className="w-12 h-1 bg-secondary rounded"></div>
+            </div>
             <p className="mt-4 text-base text-gray-400">
               Conectamos el talento diverso con empleadores comprometidos a través de tecnología innovadora.
             </p>
@@ -61,13 +67,16 @@ const Footer = () => {
           {/* Enlaces */}
           <div className="lg:col-span-2 grid grid-cols-2 gap-8">
             <div>
-              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
+              <h3 className="text-sm font-semibold text-primary tracking-wider uppercase mb-4">
                 Compañía
               </h3>
               <ul className="space-y-4">
                 {links.info.slice(0, 2).map((item) => (
                   <li key={item.name}>
-                    <Link to={item.href} className="text-base text-gray-400 hover:text-white transition-colors">
+                    <Link 
+                      to={item.href} 
+                      className="text-base text-gray-400 hover:text-primary transition-all hover:translate-x-1 inline-block"
+                    >
                       {item.name}
                     </Link>
                   </li>
@@ -75,13 +84,16 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
+              <h3 className="text-sm font-semibold text-secondary tracking-wider uppercase mb-4">
                 Legal
               </h3>
               <ul className="space-y-4">
                 {links.info.slice(2).map((item) => (
                   <li key={item.name}>
-                    <Link to={item.href} className="text-base text-gray-400 hover:text-white transition-colors">
+                    <Link 
+                      to={item.href} 
+                      className="text-base text-gray-400 hover:text-secondary transition-all hover:translate-x-1 inline-block"
+                    >
                       {item.name}
                     </Link>
                   </li>
@@ -92,15 +104,15 @@ const Footer = () => {
 
           {/* Redes Sociales */}
           <div>
-            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
+            <h3 className="text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tracking-wider uppercase mb-4">
               Síguenos
             </h3>
             <div className="flex space-x-6">
-              {links.social.map((item) => (
+              {links.social.map((item, index) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={`text-gray-400 hover:${index % 2 === 0 ? 'text-primary' : 'text-secondary'} transition-all hover:scale-110`}
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />

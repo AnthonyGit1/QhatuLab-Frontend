@@ -1,8 +1,31 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // Función para cerrar el menú móvil
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  // Scroll al inicio cuando cambia la ruta
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    closeMenu();
+  }, [location.pathname]);
+
+  const navLinks = [
+    { path: '/comunidad', label: 'Comunidad' },
+    { path: '/capacitacion', label: 'Capacitación' },
+    { path: '/entrevista-rv', label: 'Entrevista RV' },
+  ];
+
+  // Función para determinar si un enlace está activo
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <nav className="bg-white fixed w-full z-50 shadow-sm">
@@ -10,53 +33,46 @@ const Navbar = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo y Nombre */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2" onClick={closeMenu}>
               <img
                 className="h-8 w-auto"
                 src="/logo.png"
                 alt="QhatuLab Logo"
               />
-              <span className="font-bold text-xl text-gray-900">QhatuLab</span>
+              <span className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                QhatuLab
+              </span>
             </Link>
           </div>
 
           {/* Menu Desktop */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <Link
-              to="/empleos"
-              className="text-gray-700 hover:text-[#9333EA] transition-colors"
-            >
-              Empleos IA
-            </Link>
-            <Link
-              to="/comunidad"
-              className="text-gray-700 hover:text-[#9333EA] transition-colors"
-            >
-              Comunidad
-            </Link>
-            <Link
-              to="/capacitacion"
-              className="text-gray-700 hover:text-[#9333EA] transition-colors"
-            >
-              Capacitación
-            </Link>
-            <Link
-              to="/asistente"
-              className="text-gray-700 hover:text-[#9333EA] transition-colors"
-            >
-              Asistente IA
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-gray-700 transition-colors relative group ${
+                  isActive(link.path) ? 'text-primary' : 'hover:text-primary'
+                }`}
+              >
+                {link.label}
+                {/* Indicador de página activa */}
+                <div className={`absolute bottom-0 left-0 w-full h-0.5 transform scale-x-0 transition-transform group-hover:scale-x-100 ${
+                  isActive(link.path) ? 'bg-primary scale-x-100' : 'bg-primary'
+                }`} />
+              </Link>
+            ))}
 
             <div className="flex items-center space-x-4">
               <Link
                 to="/login"
-                className="text-gray-700 hover:text-[#9333EA] transition-colors"
+                className="text-gray-700 hover:text-secondary transition-colors"
               >
                 Iniciar Sesión
               </Link>
               <Link
                 to="/registro"
-                className="bg-[#9333EA] text-white px-4 py-2 rounded-lg hover:bg-[#7C3AED] transition-colors"
+                className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg transition-all hover:shadow-md"
               >
                 Registrarse
               </Link>
@@ -66,7 +82,7 @@ const Navbar = () => {
           {/* Botón menú móvil */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden rounded-md p-2 text-gray-400 hover:text-gray-500"
+            className="md:hidden rounded-md p-2 text-gray-400 hover:text-primary transition-colors"
           >
             <svg
               className="h-6 w-6"
@@ -90,40 +106,32 @@ const Navbar = () => {
       {/* Menú móvil */}
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link
-              to="/empleos"
-              className="block px-3 py-2 text-gray-700 hover:text-[#9333EA]"
-            >
-              Empleos IA
-            </Link>
-            <Link
-              to="/comunidad"
-              className="block px-3 py-2 text-gray-700 hover:text-[#9333EA]"
-            >
-              Comunidad
-            </Link>
-            <Link
-              to="/capacitacion"
-              className="block px-3 py-2 text-gray-700 hover:text-[#9333EA]"
-            >
-              Capacitación
-            </Link>
-            <Link
-              to="/asistente"
-              className="block px-3 py-2 text-gray-700 hover:text-[#9333EA]"
-            >
-              Asistente IA
-            </Link>
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`block px-3 py-2 rounded-lg transition-colors ${
+                  isActive(link.path)
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
+                }`}
+                onClick={closeMenu}
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
               to="/login"
-              className="block px-3 py-2 text-gray-700 hover:text-[#9333EA]"
+              className="block px-3 py-2 text-gray-700 hover:text-secondary hover:bg-gray-50 rounded-lg transition-colors"
+              onClick={closeMenu}
             >
               Iniciar Sesión
             </Link>
             <Link
               to="/registro"
-              className="block px-3 py-2 bg-[#9333EA] text-white rounded-lg"
+              className="block px-3 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg transition-all hover:shadow-md"
+              onClick={closeMenu}
             >
               Registrarse
             </Link>
