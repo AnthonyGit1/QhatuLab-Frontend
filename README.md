@@ -103,6 +103,7 @@ npm run dev
 
 </div>
 
+---
 <div align="center">
   <p>Desarrollado con 💜 por el equipo SeedMinds</p>
   <p>Copyright © 2024 QhatuLab. Todos los derechos reservados.</p>
