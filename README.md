@@ -100,15 +100,8 @@ npm run dev
 | <img src="/public/anthony.jpg" width="200"/> | <img src="/public/jaci.png" width="200"/> | <img src="/public/josh.jpg" width="200"/> |
 | **Anthony Rosas** | **Jaci Lucas** | **Joshelyn Riveros** |
 | Backend & IA | Frontend & UX | Contenido & Testing |
-| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/anthony) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/jaci) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/joshelyn) |
 
 </div>
-
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
-
----
 
 <div align="center">
   <p>Desarrollado con 💜 por el equipo SeedMinds</p>
