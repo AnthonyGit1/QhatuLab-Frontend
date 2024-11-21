@@ -8,7 +8,7 @@ import AccessibilityMenu from './components/AccessibilityMenu';
 import Home from './pages/Home';
 import Community from './pages/Community';
 import Training from './pages/Training';
-import Interview from './pages/Interview';
+import GameInterface from './pages/GameInterface';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Matches from './pages/Matches';
@@ -30,7 +30,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/comunidad" element={<Community />} />
             <Route path="/capacitacion" element={<Training />} />
-            <Route path="/entrevista-rv" element={<Interview />} />
+            <Route path="/entrevista-rv" element={<GameInterface />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Register />} />
             <Route path="/matches/:candidateId" element={<Matches />} />
