@@ -22,10 +22,9 @@ const AccessibilityMenu = () => {
         className="bg-primary p-2 text-white rounded-l-lg shadow-lg hover:bg-primary-dark transition-all duration-300 hover:shadow-xl"
         aria-label="Accesibilidad"
       >
-        <Eye className="h-5 w-5" />
+        <Eye className="h-6 w-6" />
       </button>
 
-      {/* Panel - Siempre presente pero transformado */}
       <div 
         className={`fixed top-[20vh] right-0 bg-white shadow-xl border-l border-gray-200 w-64 transition-transform duration-300 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
@@ -46,7 +45,6 @@ const AccessibilityMenu = () => {
         </div>
 
         <div className="p-3 space-y-3">
-          {/* Tamaño del texto */}
           <div>
             <p className="text-xs font-medium text-gray-700 mb-2">Tamaño del texto</p>
             <div className="flex gap-2">

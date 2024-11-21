@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import Layout from './components/layout/Layout';
 import DisabilitySelector from './components/DisabilitySelector';
-import AccessibilityMenu from './components/AccessibilityMenu';
+import GlobalHelpers from './components/GlobalHelpers';
 
 import Home from './pages/Home';
 import Community from './pages/Community';
@@ -25,7 +25,7 @@ function App() {
     <Router>
       <div className="relative">
         <Layout>
-          <AccessibilityMenu />
+          <GlobalHelpers />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/comunidad" element={<Community />} />

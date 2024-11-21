@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Settings, Volume2, Accessibility, User } from 'lucide-react';
 import AccessibilityMenu from './AccessibilityMenu';
+import SignLanguageHelper from './SignLanguageHelper';
 
 const DisabilitySelector = ({ onComplete }) => {
   const [loading, setSelected] = useState(false);
@@ -44,9 +45,13 @@ const DisabilitySelector = ({ onComplete }) => {
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-white to-gray-50 z-40 overflow-y-auto">
-      {/* AccessibilityMenu */}
       <AccessibilityMenu />
-      
+      <SignLanguageHelper
+        title="Personaliza tu Experiencia Digital"
+        description="Elige la configuración que mejor se adapte a tus necesidades"
+        videoUrl="/videos/signs/disability.mp4"
+      />
+
       {!loading ? (
         <div className="min-h-screen flex flex-col items-center justify-center py-8 px-4 sm:px-8">
           <div className="w-full max-w-3xl my-auto">
