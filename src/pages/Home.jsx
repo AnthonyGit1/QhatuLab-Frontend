@@ -54,17 +54,17 @@ const Home = () => {
     {
       name: 'Anthony Rosas',
       role: 'Backend & IA',
-      image: '/anthony.jpg'
+      image: '/img/anthony.jpg'
     },
     {
       name: 'Jaci Lucas',
       role: 'Frontend & UX',
-      image: '/jaci.png'
+      image: '/img/jaci.png'
     },
     {
       name: 'Joshelyn Riveros',
       role: 'Contenido & Testing',
-      image: '/josh.jpg'
+      image: '/img/josh.jpg'
     }
   ];
 
@@ -73,21 +73,21 @@ const Home = () => {
     {
       name: "María García",
       role: "Desarrolladora Frontend en Tech Corp",
-      image: "/testimonial1.jpeg",
+      image: "/img/testimonial1.jpeg",
       quote: "QhatuLab no solo me ayudó a conseguir mi primer empleo en tecnología, sino que me dio las herramientas para crecer profesionalmente.",
       color: "primary"
     },
     {
       name: "Juan Pérez",
       role: "Analista de Datos en Data Solutions",
-      image: "/testimonial1.jpeg",
+      image: "/img/testimonial1.jpeg",
       quote: "El simulador de entrevistas me dio la confianza que necesitaba. Ahora trabajo en mi empresa soñada.",
       color: "secondary"
     },
     {
       name: "Ana Torres",
       role: "Diseñadora UX en Creative Studio",
-      image: "/testimonial1.jpeg",
+      image: "/img/testimonial1.jpeg",
       quote: "Los cursos personalizados y el apoyo constante fueron clave para mi desarrollo profesional.",
       color: "primary"
     }
@@ -121,6 +121,8 @@ const Home = () => {
                 <Link
                   to="/registro"
                   className="btn-primary px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-all duration-300 shadow-sm hover:shadow-md"
+                  aria-label="Ir a la página de registro"
+                  title="Regístrate en QhatuLab"
                 >
                   Comienza tu viaje
                 </Link>
@@ -136,7 +138,7 @@ const Home = () => {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-10"></div>
               <img
-                src="/maestra-silla-ruedas.jpg"
+                src="/img/maestra-silla-ruedas.jpg"
                 alt="Maestra en silla de ruedas dando clase"
                 className="relative rounded-lg shadow-xl w-full object-cover"
               />
@@ -268,9 +270,10 @@ const Home = () => {
                         testimonial.color === "primary" ? "border-primary" : "border-secondary"
                       }`}
                       src={testimonial.image}
-                      alt={testimonial.name}
+                      alt={testimonial.name ? `Foto de ${testimonial.name}` : 'Imagen de un usuario'}
                       onError={(e) => {
                         e.target.src = 'https://via.placeholder.com/48';
+                        e.target.alt = 'Imagen predeterminada';
                       }}
                     />
                   </div>
@@ -347,12 +350,16 @@ const Home = () => {
             <Link
               to="/registro"
               className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-all hover:shadow-md"
+              aria-label="Ir a la página de registro"
+              title="Regístrate en QhatuLab"
             >
               Registrarse ahora
             </Link>
             <Link
               to="/comunidad"
               className="px-8 py-3 border border-secondary text-secondary rounded-lg hover:bg-secondary hover:text-white transition-all group flex items-center gap-2"
+              aria-label="Ir a la página de la comunidad"
+              title='Conoce la comunidad de QhatuLab'
             >
               Conoce la comunidad
               <span className="transform transition-transform group-hover:translate-x-1">→</span>

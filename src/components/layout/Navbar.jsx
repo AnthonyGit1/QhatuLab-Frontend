@@ -36,7 +36,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center space-x-2" onClick={closeMenu}>
               <img
                 className="h-8 w-auto"
-                src="/logo.png"
+                src="/img/logo.png"
                 alt="QhatuLab Logo"
               />
               <span className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -54,6 +54,8 @@ const Navbar = () => {
                 className={`text-gray-700 transition-colors relative group ${
                   isActive(link.path) ? 'text-primary' : 'hover:text-primary'
                 }`}
+                aria-label={link.label}
+                title={link.label}
               >
                 {link.label}
                 {/* Indicador de página activa */}
@@ -67,12 +69,16 @@ const Navbar = () => {
               <Link
                 to="/login"
                 className="text-gray-700 hover:text-secondary transition-colors"
+                aria-label="Iniciar Sesión"
+                title="Iniciar Sesión"
               >
                 Iniciar Sesión
               </Link>
               <Link
                 to="/registro"
                 className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg transition-all hover:shadow-md"
+                aria-label="Registrarse"
+                title="Registrarse"
               >
                 Registrarse
               </Link>
@@ -83,6 +89,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden rounded-md p-2 text-gray-400 hover:text-primary transition-colors"
+            aria-label="Abrir menú"
           >
             <svg
               className="h-6 w-6"
@@ -117,6 +124,8 @@ const Navbar = () => {
                     : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
                 }`}
                 onClick={closeMenu}
+                aria-label={link.label}
+                title={link.label}
               >
                 {link.label}
               </Link>
@@ -125,6 +134,8 @@ const Navbar = () => {
               to="/login"
               className="block px-3 py-2 text-gray-700 hover:text-secondary hover:bg-gray-50 rounded-lg transition-colors"
               onClick={closeMenu}
+              aria-label="Iniciar Sesión"
+              title="Iniciar Sesión"
             >
               Iniciar Sesión
             </Link>
@@ -132,6 +143,8 @@ const Navbar = () => {
               to="/registro"
               className="block px-3 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg transition-all hover:shadow-md"
               onClick={closeMenu}
+              aria-label="Registrarse"
+              title="Registrarse"
             >
               Registrarse
             </Link>

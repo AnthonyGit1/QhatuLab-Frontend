@@ -5,10 +5,12 @@ import { Construction, ChevronLeft, BellRing } from 'lucide-react';
 const Login = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center sm:px-6 lg:px-8">
-      <div className="mt-24 mb-12 sm:mx-auto sm:w-full sm:max-w-md"> {/* Añadido mt-24 para compensar el navbar */}
+      <div className="mt-24 mb-12 sm:mx-auto sm:w-full sm:max-w-md">
         <Link 
           to="/" 
           className="flex items-center justify-center gap-2 text-gray-500 hover:text-primary transition-colors mb-8 group"
+          aria-label="Volver al inicio"
+          title="Volver al inicio"
         >
           <ChevronLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
           Volver al inicio
@@ -18,7 +20,7 @@ const Login = () => {
           {/* Logo o icono */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-6">
-              <img src="/logo.png" alt="QhatuLab" className="h-12" />
+              <img src="/img/logo.png" alt="QhatuLab" className="h-12" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900">
               Próximamente
@@ -48,6 +50,7 @@ const Login = () => {
                 <button
                   type="submit"
                   className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
+                  aria-label="Notificarme"
                 >
                   Notificarme
                 </button>
@@ -63,6 +66,8 @@ const Login = () => {
             <Link
               to="/registro"
               className="w-full flex justify-center py-3 px-4 border border-secondary text-secondary rounded-md hover:bg-secondary hover:text-white transition-all"
+              aria-label="Regístrate aquí"
+              title="Regístrate aquí"
             >
               Regístrate aquí
             </Link>
@@ -72,7 +77,12 @@ const Login = () => {
         <div className="mt-8 text-center">
           <p className="text-sm text-gray-500">
             ¿Necesitas ayuda? 
-            <Link to="/contacto" className="ml-1 text-primary hover:text-primary-dark">
+            <Link 
+              to="/contacto" 
+              className="ml-1 text-primary hover:text-primary-dark"
+              aria-label="Contáctanos"
+              title="Contáctanos"
+            >
               Contáctanos
             </Link>
           </p>

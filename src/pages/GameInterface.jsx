@@ -56,6 +56,7 @@ const GameInterface = () => {
               <button
                 onClick={() => setShowInstructions(!showInstructions)}
                 className="flex items-center gap-2 px-3 py-1.5 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors text-sm"
+                aria-label={showInstructions ? 'Ocultar instrucciones' : 'Ver instrucciones'}
               >
                 <Info className="h-4 w-4" />
                 {showInstructions ? 'Ocultar' : 'Ver'} instrucciones
@@ -64,6 +65,7 @@ const GameInterface = () => {
               <button
                 onClick={toggleFullscreen}
                 className="px-3 py-1.5 bg-primary hover:bg-primary-dark text-white rounded-lg transition-colors flex items-center gap-2 text-sm"
+                aria-label={isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}
               >
                 {isFullscreen ? (
                   <><Minimize2 className="h-4 w-4" /> Salir</>

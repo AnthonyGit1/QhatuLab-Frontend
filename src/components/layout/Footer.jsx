@@ -76,6 +76,8 @@ const Footer = () => {
                     <Link 
                       to={item.href} 
                       className="text-base text-gray-400 hover:text-primary transition-all hover:translate-x-1 inline-block"
+                      aria-label={item.name}
+                      title={item.name}
                     >
                       {item.name}
                     </Link>
@@ -93,6 +95,8 @@ const Footer = () => {
                     <Link 
                       to={item.href} 
                       className="text-base text-gray-400 hover:text-secondary transition-all hover:translate-x-1 inline-block"
+                      aria-label={item.name}
+                      title={item.name}
                     >
                       {item.name}
                     </Link>
@@ -113,6 +117,8 @@ const Footer = () => {
                   key={item.name}
                   href={item.href}
                   className={`text-gray-400 hover:${index % 2 === 0 ? 'text-primary' : 'text-secondary'} transition-all hover:scale-110`}
+                  aria-label={item.name}
+                  title={item.name}
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />

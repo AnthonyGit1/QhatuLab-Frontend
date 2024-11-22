@@ -32,7 +32,7 @@ const Community = () => {
       name: "María Torres",
       role: "Frontend Developer",
       company: "TechCorp",
-      image: "/testimonial1.jpeg",
+      image: "/img/testimonial1.jpeg",
       story: "Gracias a la comunidad QhatuLab, pude superar las barreras y encontrar mi primer empleo en tecnología.",
       likes: 128
     },
@@ -40,7 +40,7 @@ const Community = () => {
       name: "Carlos Ruiz",
       role: "UX Designer",
       company: "DesignHub",
-      image: "/testimonial1.jpeg",
+      image: "/img/testimonial1.jpeg",
       story: "El apoyo de los mentores y compañeros fue fundamental para mi desarrollo profesional.",
       likes: 95
     },
@@ -48,7 +48,7 @@ const Community = () => {
       name: "Ana López",
       role: "Data Analyst",
       company: "DataCo",
-      image: "/testimonial1.jpeg",
+      image: "/img/testimonial1.jpeg",
       story: "Los workshops y la práctica constante me ayudaron a alcanzar mi meta profesional.",
       likes: 156
     }
@@ -254,6 +254,8 @@ const Community = () => {
             <Link
               to="/foro"
               className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors gap-2"
+              aria-label="Ir a la página de foro"
+              title="Ver todos los temas del foro"
             >
               Ver todos los temas
               <ArrowRight className="h-4 w-4" />
@@ -275,12 +277,16 @@ const Community = () => {
             <Link
               to="/registro"
               className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-all hover:shadow-md"
+              aria-label="Ir a la página de registro"
+              title="Regístrate en QhatuLab"
             >
               Registrarse
             </Link>
             <Link
               to="/about"
               className="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors"
+              aria-label="Ir a la página de acerca de"
+              title="Conoce más sobre QhatuLab"
             >
               Conocer más
             </Link>
