@@ -72,6 +72,7 @@ const DisabilitySelector = ({ onComplete }) => {
                   key={id}
                   onClick={() => handleSelection({ id, name })}
                   className={`flex items-center p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group w-full text-left`}
+                  aria-label={name}
                 >
                   <div className={`p-2 sm:p-3 rounded-lg ${
                     color === "primary" ? 'bg-primary/10' : 'bg-secondary/10'
