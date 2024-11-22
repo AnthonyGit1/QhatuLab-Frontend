@@ -47,9 +47,9 @@ const DisabilitySelector = ({ onComplete }) => {
     <div className="fixed inset-0 bg-gradient-to-br from-white to-gray-50 z-40 overflow-y-auto">
       <AccessibilityMenu />
       <SignLanguageHelper
-        title="Personaliza tu Experiencia Digital"
-        description="Elige la configuración que mejor se adapte a tus necesidades"
-        videoUrl="/videos/signs/disability.mp4"
+        section="disability" // Este nombre debe coincidir con el archivo .mp4
+        title="Personaliza tu Experiencia"
+        description="Descripción de la sección"
       />
 
       {!loading ? (

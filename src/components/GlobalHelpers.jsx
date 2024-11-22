@@ -9,54 +9,52 @@ const GlobalHelpers = () => {
   const getPageConfig = (pathname) => {
     const configs = {
       "/": {
-        title: "Página Principal",
-        description:
-          "Bienvenido a QhatuLab. Aquí encontrarás una explicación de todas nuestras funcionalidades.",
-        videoUrl: "/videos/signs/home.mp4",
+        section: "home",
+        title: "QhatuLab",
+        description: "Plataforma líder en inclusión laboral y desarrollo profesional."
       },
       "/comunidad": {
+        section: "other",
         title: "Comunidad QhatuLab",
-        description:
-          "Conoce nuestra comunidad y cómo interactuar con otros miembros.",
-        videoUrl: "/videos/signs/community.mp4",
+        description: "Espacio de interacción y networking para profesionales diversos. Conecta con otros miembros y participa en eventos."
       },
       "/capacitacion": {
+        section: "other",
         title: "Centro de Capacitación",
-        description: "Explora nuestros cursos y recursos de aprendizaje.",
-        videoUrl: "/videos/signs/training.mp4",
+        description: "Accede a cursos especializados y recursos de aprendizaje adaptados a diferentes necesidades."
       },
       "/entrevista-rv": {
+        section: "other",
         title: "Simulador de Entrevistas",
-        description: "Guía del simulador de entrevistas en realidad virtual.",
-        videoUrl: "/videos/signs/interview.mp4",
+        description: "Practica y mejora tus habilidades de entrevista en un entorno virtual seguro."
       },
       "/login": {
+        section: "other",
         title: "Iniciar Sesión",
-        description: "Inicia sesión en tu cuenta de QhatuLab.",
-        videoUrl: "/videos/signs/login.mp4",
+        description: "Accede a tu cuenta de QhatuLab para continuar tu desarrollo profesional."
       },
       "/registro": {
-        title: "Registro",
-        description: "Crea una cuenta en QhatuLab para comenzar.",
-        videoUrl: "/videos/signs/register.mp4",
-      },
+        section: "other",
+        title: "Crear Cuenta",
+        description: "Únete a QhatuLab y comienza tu viaje hacia el empleo inclusivo."
+      }
     };
 
-    return (
-      configs[pathname] || {
-        title: "QhatuLab",
-        description: "Plataforma de inclusión laboral.",
-        videoUrl: "/videos/signs/default.mp4",
-      }
-    );
+    // Configuración por defecto si la ruta no existe
+    return configs[pathname] || {
+      section: "other",
+      title: "QhatuLab",
+      description: "Plataforma líder en inclusión laboral y desarrollo profesional."
+    };
   };
 
+  // Obtener la configuración para la página actual
   const pageConfig = getPageConfig(location.pathname);
 
   return (
     <>
       <AccessibilityMenu />
-      <SignLanguageHelper section={location.pathname} {...pageConfig} />
+      <SignLanguageHelper {...pageConfig} />
     </>
   );
 };
