@@ -17,9 +17,12 @@ const Navbar = () => {
   }, [location.pathname]);
 
   const navLinks = [
+    { path: '/', label: 'Inicio' },
     { path: '/comunidad', label: 'Comunidad' },
     { path: '/capacitacion', label: 'Capacitación' },
     { path: '/entrevista-rv', label: 'Entrevista RV' },
+    { path: '/asesoria-legal', label: 'Asesoria Legal' },
+    { path: '/apoyo-psicologico', label: 'Apoyo Psicológico' },
   ];
 
   // Función para determinar si un enlace está activo
@@ -28,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white fixed w-full z-50 shadow-sm">
+    <nav className="bg-white fixed w-full z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo y Nombre */}

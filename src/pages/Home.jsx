@@ -65,6 +65,16 @@ const Home = () => {
       name: 'Joshelyn Riveros',
       role: 'Contenido & Testing',
       image: '/img/josh.jpg'
+    },
+    {
+      name: 'Janeht Zoraida',
+      role: 'Psicológa & RRHH',
+      image: '/img/janeht.jpg'
+    },
+    {
+      name: 'Anyelo Ccorimanya',
+      role: 'Asesor Legal & Desarrollo',
+      image: '/img/anyelo.jpg'
     }
   ];
 
@@ -308,31 +318,60 @@ const Home = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {teamMembers.map((member, index) => (
-              <div 
-                key={member.name} 
-                className="flex flex-col items-center group"
-              >
-                <div className={`w-48 h-48 rounded-full overflow-hidden mb-6 transform transition-transform group-hover:scale-105 border-4 ${index % 2 === 0 ? 'border-primary hover:border-primary-dark' : 'border-secondary hover:border-secondary-dark'}`}>
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
+          <div className="flex flex-col items-center gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
+              {teamMembers.slice(0, 3).map((member, index) => (
+                <div 
+                  key={member.name} 
+                  className="flex flex-col items-center group"
+                >
+                  <div className={`w-48 h-48 rounded-full overflow-hidden mb-6 transform transition-transform group-hover:scale-105 border-4 ${index % 2 === 0 ? 'border-primary hover:border-primary-dark' : 'border-secondary hover:border-secondary-dark'}`}>
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {member.name}
+                  </h3>
+                  <p className={`text-md px-4 py-1 rounded-full ${
+                    index % 2 === 0 
+                    ? 'bg-primary/10 text-primary-dark' 
+                    : 'bg-secondary/10 text-secondary-dark'
+                  }`}>
+                    {member.role}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {member.name}
-                </h3>
-                <p className={`text-md px-4 py-1 rounded-full ${
-                  index % 2 === 0 
-                  ? 'bg-primary/10 text-primary-dark' 
-                  : 'bg-secondary/10 text-secondary-dark'
-                }`}>
-                  {member.role}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full md:w-3/5">
+              {teamMembers.slice(3, 5).map((member, index) => (
+                <div 
+                  key={member.name} 
+                  className="flex flex-col items-center group"
+                >
+                  <div className={`w-48 h-48 rounded-full overflow-hidden mb-6 transform transition-transform group-hover:scale-105 border-4 ${index % 2 === 0 ? 'border-primary hover:border-primary-dark' : 'border-secondary hover:border-secondary-dark'}`}>
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {member.name}
+                  </h3>
+                  <p className={`text-md px-4 py-1 rounded-full ${
+                    index % 2 === 0 
+                    ? 'bg-primary/10 text-primary-dark' 
+                    : 'bg-secondary/10 text-secondary-dark'
+                  }`}>
+                    {member.role}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

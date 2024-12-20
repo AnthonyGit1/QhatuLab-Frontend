@@ -12,6 +12,8 @@ import GameInterface from './pages/GameInterface';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Matches from './pages/Matches';
+import LegalAdvice from './pages/LegalAdvice';
+import PsychologicalSupport from './pages/PsychologicalSupport';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
             <Route path="/comunidad" element={<Community />} />
             <Route path="/capacitacion" element={<Training />} />
             <Route path="/entrevista-rv" element={<GameInterface />} />
+            <Route path="/asesoria-legal" element={<LegalAdvice />} />
+            <Route path="/apoyo-psicologico" element={<PsychologicalSupport />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Register />} />
             <Route path="/matches/:candidateId" element={<Matches />} />
