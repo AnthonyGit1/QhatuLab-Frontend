@@ -2,7 +2,7 @@
 
 # QhatuLab
 
-![QhatuLab Logo](/public/logo.png)
+![QhatuLab Logo](/public/img/logo.png)
 
 Una plataforma innovadora de inclusión laboral potenciada por IA
 
@@ -97,7 +97,7 @@ npm run dev
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-| <img src="/public/anthony.jpg" width="200"/> | <img src="/public/jaci.png" width="200"/> | <img src="/public/josh.jpg" width="200"/> |
+| <img src="/public/img/anthony.jpg" width="200"/> | <img src="/public/img/jaci.png" width="200"/> | <img src="/public/img/josh.jpg" width="200"/> |
 | **Anthony Rosas** | **Jaci Lucas** | **Joshelyn Riveros** |
 | Backend & IA | Frontend & UX | Contenido & Testing |
 
